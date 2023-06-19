@@ -28,12 +28,8 @@
                 response = "无法发送空内容，请重新尝试";
                 return false;
             }
-            Broadcast broadcast = new Broadcast(player.Nickname + ":" + arguments.AsEnumerable().Aggregate((a, b) => a + " " + b), Plugin.Instance.Config.Showtime);
-            foreach (Player p in Player.List)
-            {
-                if (p == null) continue;
-                p.Broadcast(broadcast);
-            }
+            Broadcast broadcast = new Broadcast("\n\n<pos=-40%><size=30>[全体]" + player.Nickname + ":" + arguments.AsEnumerable().Aggregate((a, b) => a + " " + b), Plugin.Instance.Config.Showtime);
+            Map.Broadcast(broadcast);
             response = "发送成功";
             return true;
         }

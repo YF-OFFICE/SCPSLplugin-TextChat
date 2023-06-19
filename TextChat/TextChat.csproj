@@ -11,6 +11,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\..\downlaods\Master\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
     <Reference Include="Mirror">
       <HintPath>..\..\..\..\..\downlaods\Master\Mirror.dll</HintPath>
     </Reference>

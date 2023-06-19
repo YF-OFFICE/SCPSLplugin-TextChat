@@ -29,7 +29,7 @@
                 response = "无法发送空内容，请重新尝试";
                 return false;
             }
-            Broadcast broadcast=new Broadcast($"[{player.Getcolor()}{player.LeadingTeam}</color>]"+player.Nickname + ":" + arguments.AsEnumerable().Aggregate((a, b) => a + " " + b), Plugin.Instance.Config.Showtime);
+            Broadcast broadcast=new Broadcast("<pos=-40%><size=30>" + $"[{player.Getcolor()}{player.LeadingTeam}</color>]"+player.Nickname + ":" + arguments.AsEnumerable().Aggregate((a, b) => a + " " + b), Plugin.Instance.Config.Showtime);
             foreach(Player p in Player.List.Where(p => p.LeadingTeam == player.LeadingTeam))
             {
                 if (p == null) continue;
