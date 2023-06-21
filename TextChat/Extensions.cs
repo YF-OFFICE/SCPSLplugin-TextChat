@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextChat
+﻿namespace TextChat
 {
     using Exiled.API.Features;
     using Exiled.API.Enums;
@@ -22,6 +16,22 @@ namespace TextChat
                     return "<color=#FF0000>";
                 case LeadingTeam.Draw:
                     return "<color=#FFFFFF>";
+                default:
+                    return "";
+            }
+        }
+        public static string Getteam(this Player player)
+        {
+            switch (player.LeadingTeam)
+            {
+                case LeadingTeam.FacilityForces:
+                    return "MTF";
+                case LeadingTeam.ChaosInsurgency:
+                    return "CI";
+                case LeadingTeam.Anomalies:
+                    return "SCP";
+                case LeadingTeam.Draw:
+                    return "旁观者";
                 default:
                     return "";
             }

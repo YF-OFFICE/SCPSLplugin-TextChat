@@ -3,7 +3,6 @@
     using CommandSystem;
     using Exiled.API.Features;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
 
     [CommandHandler(typeof(ClientCommandHandler))]
@@ -29,11 +28,12 @@
                 response = "无法发送空内容，请重新尝试";
                 return false;
             }
-            Broadcast broadcast=new Broadcast("<pos=-40%><size=30>" + $"[{player.Getcolor()}{player.LeadingTeam}</color>]"+player.Nickname + ":" + arguments.AsEnumerable().Aggregate((a, b) => a + " " + b), Plugin.Instance.Config.Showtime);
-            foreach(Player p in Player.List.Where(p => p.LeadingTeam == player.LeadingTeam))
+            Collections.Message message =new Collections.Message($"[{player.Getcolor()}{player.LeadingTeam}</color>]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}",player,DateTime.Now);
+            foreach(Player i in Player.List.Where(p => p.LeadingTeam == player.LeadingTeam))
             {
-                if (p == null) continue;
-                p.Broadcast(broadcast);
+                if (i == null) continue;
+                var p = PlayerManager.GetPlayerInstance(i.ReferenceHub);
+                p.SetMessage(message);
             }
             response = "发送成功";
             return true;
