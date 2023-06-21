@@ -28,6 +28,11 @@
                 response = "无法发送空内容，请重新尝试";
                 return false;
             }
+            if (arguments.Count > Plugin.Instance.Config.MaxMessage)
+            {
+                response = $"消息过长，最大长度为{Plugin.Instance.Config.MaxMessage}";
+                return false;
+            }
             Collections.Message message =new Collections.Message($"<pos=-70%><size=30>[{player.Getcolor()}{player.Getteam()}</color>]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}",player,DateTime.Now);
             foreach(Player i in Player.List.Where(p => p.LeadingTeam == player.LeadingTeam))
             {

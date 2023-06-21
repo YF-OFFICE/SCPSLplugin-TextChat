@@ -5,6 +5,8 @@
     using TextChat;
     using System;
     using System.Linq;
+    using System.Net.Mail;
+
     [CommandHandler(typeof(ClientCommandHandler))]
     public class Public : ICommand
     {
@@ -26,6 +28,11 @@
             if (arguments.Count == 0)
             {
                 response = "无法发送空内容，请重新尝试";
+                return false;
+            }
+            if(arguments.Count > Plugin.Instance.Config.MaxMessage)
+            {
+                response = $"消息过长，最大长度为{Plugin.Instance.Config.MaxMessage}";
                 return false;
             }
             Collections.Message message = new Collections.Message($"<pos=-70%><size=30>[全体]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}", player, DateTime.Now);
