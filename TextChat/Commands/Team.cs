@@ -28,7 +28,7 @@
                 response = "无法发送空内容，请重新尝试";
                 return false;
             }
-            Collections.Message message =new Collections.Message($"[{player.Getcolor()}{player.LeadingTeam}</color>]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}",player,DateTime.Now);
+            Collections.Message message =new Collections.Message($"<pos=-70%><size=30>[{player.Getcolor()}{player.Getteam()}</color>]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}",player,DateTime.Now);
             foreach(Player i in Player.List.Where(p => p.LeadingTeam == player.LeadingTeam))
             {
                 if (i == null) continue;

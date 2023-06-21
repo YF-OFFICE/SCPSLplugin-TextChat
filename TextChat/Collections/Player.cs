@@ -16,7 +16,7 @@
         private List<Message> MessageList=new List<Message>();
         public void BeSentMessages()
         {
-            string s = $"\n\n\n<pos=-70%><size=30>{Ply.Getcolor()}按~键打开控制台输入.c团队聊天.bc全体聊天哦</color>";
+            string s = $"\n\n<pos=-70%><size=30>{Ply.Getcolor()}按~键打开控制台输入.c团队聊天.bc全体聊天哦</color>\n";
             List<Message> messagesToRemove = new List<Message>();
             foreach (var message in MessageList)
             {
@@ -25,7 +25,6 @@
                     messagesToRemove.Add(message); 
                     continue;
                 }
-                s += '\n';
                 s += message.Text;
                 s += '\n';
             }
@@ -33,7 +32,7 @@
             {
                 MessageList.Remove(messageToRemove);
             }
-            Ply.Broadcast(new Exiled.API.Features.Broadcast(s, 1));
+            Ply.ShowHint(new Exiled.API.Features.Hint(s, 1));
         }
     }
 }

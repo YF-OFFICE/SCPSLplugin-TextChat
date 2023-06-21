@@ -28,7 +28,7 @@
                 response = "无法发送空内容，请重新尝试";
                 return false;
             }
-            Collections.Message message = new Collections.Message($"[全体]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}", player, DateTime.Now);
+            Collections.Message message = new Collections.Message($"<pos=-70%><size=30>[全体]{player.Nickname}:{arguments.AsEnumerable().Aggregate((a, b) => a + " " + b)}", player, DateTime.Now);
             foreach (var i in Player.List)
             {
                 if (i == null) continue;
