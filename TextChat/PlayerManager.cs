@@ -2,11 +2,10 @@
 {
     using System.Collections.Generic;
     using TextChat.Collections;
-    public static class PlayerManager
+    public  class PlayerManager
     {
         //存储玩家实例
-        private static Dictionary<ReferenceHub, Player> playerInstances = new Dictionary<ReferenceHub, Player>();
-        public static void DictClear()=>playerInstances.Clear();
+        public static Dictionary<ReferenceHub, Player> playerInstances = new Dictionary<ReferenceHub, Player>();
         //通过ReferenceHub获取玩家实例如果没有则创建
         public static Player GetPlayerInstance(ReferenceHub referenceHub)
         {

@@ -28,7 +28,7 @@
         {
             Timing.KillCoroutines(coroutine);
             //清除玩家实例
-            PlayerManager.DictClear();
+            PlayerManager.playerInstances.Clear();
         }
     }
 }

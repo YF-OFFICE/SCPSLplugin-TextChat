@@ -7,7 +7,7 @@
         private static readonly Plugin SingletonInstance = new Plugin();
         private Plugin() { }
         public static Plugin Instance => SingletonInstance;
-        public override string Name { get; } = "TectChat";
+        public override string Name { get; } = "TextChat";
         public override void OnEnabled()
         {
             EventHandlers eventHandlers = new EventHandlers();
