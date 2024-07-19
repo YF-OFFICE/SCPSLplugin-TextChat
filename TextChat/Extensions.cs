@@ -9,7 +9,7 @@
             switch (player.LeadingTeam)
             {
                 case LeadingTeam.FacilityForces:
-                    return "<color=##0000FF>";
+                    return "<color=#0000FF>";
                 case LeadingTeam.ChaosInsurgency:
                     return "<color=#00CC00>";
                 case LeadingTeam.Anomalies:
